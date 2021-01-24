@@ -1,6 +1,10 @@
 import { createStore } from 'redux';
 
-const initialState = {};
+const initialState = {
+  results: [],
+  fetchStatus: 'idle',
+  error: null
+};
 
 const reducer = (state, action) => {
   return state;
