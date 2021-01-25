@@ -7,8 +7,8 @@ import App from './App';
 describe('<App />', () => {
   it('provides some feedback', async () => {
     await render(<Provider store={store}><App /></Provider>);
-    const numMajorComponents = screen.queryAllByRole('region').length;
+    const text = screen.queryAllByText(/./g).length;
 
-    expect(numMajorComponents).toBeTruthy();
+    expect(text).toBeTruthy();
   });
 });
