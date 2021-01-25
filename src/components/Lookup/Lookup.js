@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import fetchResults from '../../utils/fetchResults';
 import './Lookup.css';
 
-function Lookup({ dispatch }) {
+function Lookup({ dispatch, fetchStatus }) {
   const [ search, setSearch ] = useState('');
 
   const handleTextInput = event => setSearch(event.target.value);
-  const handleSubmit = event => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch({ type: 'UPDATE_SUBMISSION', submission: search });
+    if (fetchStatus !== 'loading') {
+      try {
+        dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'loading' });
+        const results = await fetchResults('url');
+        dispatch({ type: 'UPDATE_RESULTS', results });
+        dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'succeeded'});
+      } catch(error) {
+        dispatch({ type: 'UPDATE_ERROR', error });
+        dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'failed'});
+      } 
+    }
   };
 
   return (
@@ -22,4 +34,7 @@ function Lookup({ dispatch }) {
   );
 }
 
-export default connect()(Lookup);
+const mapState = state => {
+  return { fetchStatus: state.fetchStatus };
+}
+export default connect(mapState)(Lookup);

@@ -20,7 +20,7 @@ describe('<Lookup />', () => {
 
     fireEvent.click(button);
 
-    const results = screen.queryByText('submission');
+    const results = screen.findByText('100');
 
     expect(results).not.toBeNull();
   })

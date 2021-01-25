@@ -8,14 +8,15 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  if (action.type === 'UPDATE_SUBMISSION') {
-    return {
-      ...state,
-      submission: action.submission,
-      fetchStatus: 'submission'
-    }
-  } else {
-    return state;
+  switch (action.type) {
+    case 'UPDATE_FETCHSTATUS':
+      return { ...state, fetchStatus: action.fetchStatus };
+    case 'UPDATE_RESULTS':
+      return { ...state, results: action.results };
+    case 'UPDATE_ERROR':
+      return { ...state, error: action.error };
+    default:
+      return state;
   }
 };
 
