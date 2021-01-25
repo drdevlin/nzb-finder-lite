@@ -15,8 +15,7 @@ const fetchResults = async (url) => {
     const response = await fakeFetch(url);
     data = await response.json();
     if (response.ok) {
-      const parsedData = JSON.parse(data);
-      return parsedData.item;
+      return data;
     }
     throw new Error(response.statusText);
   } catch (err) {

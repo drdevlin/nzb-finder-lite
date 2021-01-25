@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import extractData from '../../utils/extractData';
 import fetchResults from '../../utils/fetchResults';
 import './Lookup.css';
 
@@ -14,7 +15,8 @@ function Lookup({ dispatch, fetchStatus }) {
       try {
         dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'loading' });
         const results = await fetchResults('url');
-        dispatch({ type: 'UPDATE_RESULTS', results });
+        const tidyResults = extractData(results);
+        dispatch({ type: 'UPDATE_RESULTS', results: tidyResults });
         dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'succeeded'});
       } catch(error) {
         dispatch({ type: 'UPDATE_ERROR', error });

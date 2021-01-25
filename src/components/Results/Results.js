@@ -8,9 +8,22 @@ function Results(props) {
     idle: null,
     loading: <p role='status'>Hold on...</p>,
     succeeded: (
-      <ul>
-        {props.results.map(el => <li key={el.id}>{el.title}</li>)}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.results.map(result => (
+            <tr key={ result.id }>
+              <td><a href={ result.link }>{ result.title }</a></td>
+              <td>{ result.size }MB</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     ),
     failed: <p role='status'>{props.error}</p>
   }

@@ -14,13 +14,13 @@ describe('<Lookup />', () => {
     expect(label).not.toBeNull();
   });
 
-  it('updates store', async () => {
+  it('displays result table after search', async () => {
     await render(<Provider store={store}><Lookup /><Results /></Provider>);
     const button = screen.getByText('Gimme');
 
     fireEvent.click(button);
 
-    const results = screen.findByText('100');
+    const results = await screen.findByText('Title');
 
     expect(results).not.toBeNull();
   })
