@@ -6,7 +6,7 @@ a:hover {
   color: gray;
 }
 
-.Results > table {
+.Results {
   margin-top: 2rem;
   color: lightgray;
   text-align: left;
