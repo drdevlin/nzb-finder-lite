@@ -1,10 +1,10 @@
-const extractData = (jsonData) => {
+const extractData = (rawData) => {
 
   // Parse to js object
-  const parsedData = JSON.parse(jsonData);
+  //const parsedData = JSON.parse(jsonData);
 
   // Remove metadata
-  const data = parsedData.item;
+  const data = rawData.item;
 
   // Extract only needed data
   const results = data.map(result => {

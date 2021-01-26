@@ -1,20 +1,9 @@
-import { fakeResponse } from './fake-response';
-
-const fakeFetch = async () => {
-  return {
-    ok: true,
-    json: async () => {
-      return fakeResponse;
-    }
-  };
-};
-
 const fetchResults = async (url) => {
   let data;
   try {
-    const response = await fakeFetch(url);
-    data = await response.json();
+    const response = await fetch(url);
     if (response.ok) {
+      data = await response.json();
       return data;
     }
     throw new Error(response.statusText);
