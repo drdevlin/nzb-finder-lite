@@ -32,13 +32,19 @@ function Lookup({ dispatch, fetchStatus }) {
   return (
     <section className="Lookup" aria-label='Look up'>
       <form onSubmit={event => handleSubmit(event)}>
-        <label htmlFor='search'>What we watchin?</label>
-        <input id="search" name="search" value={search} onChange={handleTextInput} />
-        <input type="radio" name="category" id="tv" value="tv" checked onChange={handleCategorySelect} />
-        <label htmlFor="tv">TV</label>
-        <input type="radio" name="category" id="movie" value="movie" onChange={handleCategorySelect} />
-        <label htmlFor="movie">Movies</label>
-        <button type='submit'>Gimme</button>
+        <div className='lookup-top'>
+          <label htmlFor='search'>What we watchin?</label>
+        </div>
+        <div className='lookup-middle'>
+          <input id="search" name="search" value={search} autoFocus onChange={handleTextInput} />
+          <button type='submit'>Gimme</button>
+        </div>
+        <div className='lookup-bottom'>
+          <input type="radio" name="category" id="tv" value="tv" defaultChecked onChange={handleCategorySelect} />
+          <label htmlFor="tv">TV</label>
+          <input type="radio" name="category" id="movie" value="movie" onChange={handleCategorySelect} />
+          <label htmlFor="movie">Movies</label>
+        </div>
       </form>
     </section>
   );

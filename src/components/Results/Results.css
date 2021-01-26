@@ -1,0 +1,22 @@
+a {
+  color: lightgray;
+}
+
+a:hover {
+  color: gray;
+}
+
+.Results > table {
+  margin-top: 2rem;
+  color: lightgray;
+  text-align: left;
+}
+
+.Results th, td {
+  padding: .25rem;
+  margin-bottom: 1rem;
+}
+
+.Results thead tr {
+  border-bottom: .01rem solid lightgray;
+}

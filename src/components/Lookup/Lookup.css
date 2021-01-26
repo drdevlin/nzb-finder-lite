@@ -1,0 +1,35 @@
+.Lookup > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lookup-top {
+  font-size: 5rem;
+  margin-top: 10rem;
+  margin-bottom: 1rem;
+}
+
+
+.lookup-middle {
+  display: flex;
+  align-items: center;
+}
+
+.lookup-middle > input {
+  margin: 1rem;
+  height: 2rem;
+  font-size: 1.5rem;
+}
+
+.lookup-middle > button {
+  margin: 1rem 1rem 1rem 0.25rem;
+  border: .1rem solid darkorange;
+  padding: .5rem;
+  color: darkorange;
+}
+
+
+.lookup-bottom > label {
+  margin: 1rem 1rem 1rem 0.25rem;
+}
