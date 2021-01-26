@@ -4,6 +4,12 @@ import { Provider } from 'react-redux';
 import store from '../../store/store';
 import Results from './Results';
 
+//Mock out download
+// import download from '../../utils/download';
+// jest.mock('../../utils/download', () => {
+//   return () => 'dl-success';
+// });
+
 describe('<Results />', () => {
   it('shows nothing when idle', async () => {
     store.dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'idle'});

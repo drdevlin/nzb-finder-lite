@@ -15,6 +15,11 @@ const reducer = (state, action) => {
       return { ...state, results: action.results };
     case 'UPDATE_ERROR':
       return { ...state, error: action.error };
+    case 'UPDATE_DOWNLOADSTATUS':
+      const modifiedResults = state.results.map(result => {
+        return (result.id === action.resultId) ? { ...result, downloadStatus: action.downloadStatus } : result;
+      });
+      return { ...state, results: modifiedResults };
     default:
       return state;
   }

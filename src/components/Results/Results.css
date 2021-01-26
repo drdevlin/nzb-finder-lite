@@ -1,11 +1,3 @@
-a {
-  color: lightgray;
-}
-
-a:hover {
-  color: gray;
-}
-
 .Results {
   margin: 2rem 15rem;
   color: lightgray;
@@ -19,4 +11,17 @@ a:hover {
 
 .Results thead tr {
   border-bottom: .01rem solid lightgray;
+}
+
+.dl-link:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.dl-success {
+  color: green;
+}
+
+.dl-fail {
+  color: red;
 }

@@ -1,9 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import download from '../../utils/download';
 import './Results.css';
 
 function Results(props) {
-  
+  const handleResultClick = async (event) => {
+    const resultId = event.target.id;
+    const downloadStatus = await download(resultId);
+    props.dispatch({ type: 'UPDATE_DOWNLOADSTATUS', resultId, downloadStatus });
+  }
+
   const modes = {
     idle: null,
     loading: <p role='status'>Hold on...</p>,
@@ -18,7 +24,7 @@ function Results(props) {
         <tbody>
           {props.results.map(result => (
             <tr key={ result.id }>
-              <td><a href={ result.link }>{ result.title }</a></td>
+              <td><span className={`dl-link ${ result.downloadStatus }`} id={ result.id } onClick={ handleResultClick }>{ result.title }</span></td>
               <td>{ result.size }MB</td>
             </tr>
           ))}
