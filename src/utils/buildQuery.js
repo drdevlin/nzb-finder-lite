@@ -2,7 +2,7 @@ import { nzbKey } from './secrets';
 
 // Query config
 const proxy = 'http://localhost:4444?url=';
-const endpoint = 'https://nzbfinder.ws/api/v1/api';
+export const endpoint = 'https://nzbfinder.ws/api/v1/api';
 const tvSearch = 't=tvsearch';
 const movieSearch = 't=movie';
 const queryParameter = 'q=';
