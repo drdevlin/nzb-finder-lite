@@ -2,6 +2,10 @@ const extractData = (rawData) => {
 
   // Remove metadata
   const data = rawData.item;
+  if (!data) {
+    console.log(rawData);
+    throw new Error('No results.');
+  }
 
   // Extract only needed data
   const results = data.map(result => {

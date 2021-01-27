@@ -23,7 +23,7 @@ function Lookup({ dispatch, fetchStatus }) {
         dispatch({ type: 'UPDATE_RESULTS', results: tidyResults });
         dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'succeeded'});
       } catch(error) {
-        dispatch({ type: 'UPDATE_ERROR', error });
+        dispatch({ type: 'UPDATE_ERROR', error: error.message });
         dispatch({ type: 'UPDATE_FETCHSTATUS', fetchStatus: 'failed'});
       } 
     }
